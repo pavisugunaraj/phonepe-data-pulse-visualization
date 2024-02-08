@@ -27,7 +27,7 @@ if option=='All India':
     with tab1:
         col1, col2, col3 = st.columns(3)
         with col1:
-            year_1 = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022'))
+            year_1 = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022','2023'))
         with col2:
             quarter_1 = st.selectbox('**Select Quarter**', ('1','2','3','4'))
         with col3:
@@ -108,7 +108,7 @@ if option=='All India':
             
             col1, col2 = st.columns(2)
             with col1:
-                user_year = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022'),key='user_year')
+                user_year = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022','2023'),key='user_year')
             with col2:
                 user_quarter = st.selectbox('**Select Quarter**', ('1','2','3','4'),key='user_qaurter')
 
@@ -191,7 +191,7 @@ elif option =='State':
             'meghalaya', 'mizoram', 'nagaland','odisha', 'puducherry', 'punjab', 'rajasthan', 'sikkim', 'tamil-nadu', 'telangana', 
             'tripura', 'uttar-pradesh', 'uttarakhand', 'west-bengal'),key='state_wise')
         with col2:
-            state_year = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022'),key='state_year')
+            state_year = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022','2023'),key='state_year')
         with col3:
             state_quarter = st.selectbox('**Select Quarter**', ('1','2','3','4'),key='state_quarter')
         
@@ -286,7 +286,7 @@ elif option =='State':
 else:
     tab5, tab6 = st.tabs(['Transaction','User'])
     with tab5:
-        top_yr = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022'),key='top_yr')
+        top_yr = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022','2023'),key='top_yr')
   
     # Top Transaction Analysis bar chart query
         cursor.execute(f"SELECT States, SUM(Transaction_amount) As Transaction_amount FROM top_transaction WHERE Years = '{top_yr}' GROUP BY States ORDER BY Transaction_amount DESC LIMIT 10;")
@@ -313,7 +313,7 @@ else:
 
     # -------------------------       /     All India Top User        /        ------------------ #
     with tab6:
-        top_us_yr = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022'),key='top_us_yr')
+        top_us_yr = st.selectbox('**Select Year**', ('2018','2019','2020','2021','2022','2023'),key='top_us_yr')
         # Top User Analysis bar chart query
         cursor.execute(f"SELECT States, SUM(Registered_User) AS Top_user FROM top_user WHERE Years='{top_us_yr}' GROUP BY States ORDER BY Top_user DESC LIMIT 10;")
         t17 = cursor.fetchall()
